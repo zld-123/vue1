@@ -1,45 +1,18 @@
 <template>
   <div class="home">
-    <h1>APP 根组件</h1>
-    <hr/>
-    <div class="box">
-      <right/>
-      <left/>
-    </div>
+    <img alt="Vue logo" src="../assets/logo.png">
+    <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
-
 </template>
 
 <script>
-import Right from '@/components/right'
-import Left from '@/components/left'
+// @ is an alias to /src
+import HelloWorld from '@/components/HelloWorld.vue'
+
 export default {
   name: 'Home',
-  data(){
-    return{
-
-    }
-  },
   components: {
-    Right,
-    Left
-  },
-  methods:{
-    add(){
-      // const 车 =''
-    }
+    HelloWorld
   }
 }
 </script>
-<style lang="less">
-.home{
-  padding: 1px 20px 20px;
-  background-color: #efefef;
-  .box{
-    background-color: red;
-    display: flex;
-    flex: 1;
-  }
-}
-
-</style>
