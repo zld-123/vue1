@@ -3,7 +3,12 @@
     <h3>我正在演示子组件像父组件传值----{{ count }}</h3>
     <button @click="add">是 count + 1</button>
     <hr>
-    <h4>我收到了大哥给的话----{{ strFrom }}</h4>
+    <!--    实验ref---ref是vue提供操作dom的方法 -->
+    <h4 ref="refH4">我收到了大哥给的话----{{ strFrom }}</h4>
+    <button @click="refDat">测试ref给上面那句话更换颜色</button>
+    <hr>
+    <h3 >我正在演示子组件像父组件传值----{{ counts }}</h3>
+    <button @click="counts += 1">是 counts + 1</button>
   </div>
 </template>
 
@@ -16,6 +21,7 @@ export default {
     // 这里存放数据
     return {
       count:0,
+      counts:0,
       strFrom:''
     }
   },
@@ -29,6 +35,9 @@ export default {
       this.count += 1
     // 修改数据时，通过$emit 定义一个自定义事件
       this.$emit('Fuadd',this.count)
+    },
+    refDat(){
+      this.$refs.refH4.style.color = 'red'
     }
   },
   // 监控data中的数据变化
@@ -46,7 +55,7 @@ export default {
 <style scoped lang="less">
 .zi2Container{
   width: 100%;
-  height: 250px;
-  background-color: red;
+  height: 650px;
+  background-color: #01f0ff;
 }
 </style>

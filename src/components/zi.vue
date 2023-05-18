@@ -60,7 +60,7 @@ export default {
 <style scoped lang="less">
 .ziContainer{
   width: 100%;
-  height: 250px;
+  height: 650px;
   background-color: skyblue;
 }
 </style>
