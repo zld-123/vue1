@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>every循环</title>
+</head>
+<body>
+<script>
+    const arr = [
+        {id:1,name:'西瓜',state:true,price:20,count:2},
+        {id:2,name:'苹果',state:true,price:10,count:15},
+        {id:3,name:'樱桃',state:false,price:40,count:1},
+        {id:4,name:'葡萄',state:true,price:30,count:5},
+    ]
+    // every 数组的方法，返回一个布尔值，当全部满足条件，返回一个 true，有一个不满足返回一个false
+    const arrs =  arr.every(item=>item.state)
+    console.log(arrs)
+//    计算购物车中已勾选的水果总价值
+//    方案一
+//     let amt = 0
+//     arr.filter(item=>item.state).forEach(item=>{
+//         amt += item.price * item.count
+//     })
+//     console.log(amt)
+
+//    方案二
+//    语法：arr.filter(item=>item.state).reduce((累加的结果,当前循环项)=>{},默认值)
+    const res = arr.filter(item=>item.state).reduce((amt,item)=>{
+        return  amt += item.price * item.count
+    },0)
+    console.log(res)
+</script>
+</body>
+</html>
