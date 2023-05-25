@@ -4,6 +4,8 @@
     <hr>
     <router-link to="/Movie/tab1">复联</router-link>
     <router-link to="/Movie/tab2">雷神</router-link>
+    <hr>
+    <h1>这是login页面</h1>
     <router-view></router-view>
   </div>
 </template>

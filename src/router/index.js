@@ -33,7 +33,7 @@ const routes = [
         //路由重定向，设置一个初始页面
         redirect: '/Home'
     },
-    {path: '/Home', component: Home},
+    {path: '/Home',name:'Home', component: Home},
     {
         path: '/Movie', component: Movie,
         redirect: '/Movie/tab1',
@@ -51,5 +51,24 @@ const routes = [
 const router = new VueRouter({
     routes
 })
+//设置路由前置守卫
+router.beforeEach((to, from, next)=>{
+//    1,to 表示将要跳转到的页面
+//    2，form 表示跳转钱的页面
+//    3，next 表示是否运行跳转
+//    实例：假设‘其他1’页面是后台页面，从首页进入到‘其他1’，需要 token 值，否则将会进入到‘电影’页面
+//    其余页面的相互跳转不会有影响将不会有影响
+    if (to.path === '/About/1'){
+        const token = localStorage.getItem('token')
+        if (token){
+            next()
+        }else {
+            next('/Movie')
+        }
+    }else {
+        next()
+    }
+})
+
 
 export default router
