@@ -10,6 +10,17 @@
 <!--    go 编程式导航，根据里面传递的参数进行上一页或者下一页的跳转，this.$router.go(-1)-->
 <!--    只跳转一页的时候有简化写法 this.$router.forward()表示式前进 this.$router.back()表示后退  -->
     <button @click="goGo">设置 go 进行历史记录的跳转</button>
+    <van-button type="primary">主要按钮</van-button>
+    <hr>
+    <van-cell is-link @click="showPopup">展示弹出层</van-cell>
+    <van-popup v-model="show">内容</van-popup>
+    <hr>
+    <van-grid>
+      <van-grid-item icon="photo-o" text="文字" />
+      <van-grid-item icon="photo-o" text="文字" />
+      <van-grid-item icon="photo-o" text="文字" />
+      <van-grid-item icon="photo-o" text="文字" />
+    </van-grid>
   </div>
 </template>
 
@@ -19,12 +30,15 @@ export default {
   name: 'Home',
   data() {
     // 这里存放数据
-    return {}
+    return {
+      show:false
+    }
   },
   // 计算属性
   computed: {},
   // 想要使用导入的私有组件需要在此注册一下才能使用
-  components: {},
+  components: {
+  },
   // 方法集合
   methods: {
     pushGo(){
@@ -35,7 +49,8 @@ export default {
     },
     goGo(){
       this.$router.back()
-    }
+    },
+    showPopup(){this.show = true;}
   },
   // 监控data中的数据变化
   watch: {},
